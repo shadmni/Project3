@@ -5,12 +5,23 @@ public class Person {
 
         private String userName;
         private String Password ;
+        private String name ;
+        private String description;
         private ArrayList<Person> bloch_list = new ArrayList<Person>();
         private ArrayList<Person> chat_list = new ArrayList<Person>();
         private ArrayList<Channel> channel_list = new ArrayList<Channel>();
         private ArrayList<Grop> grop_list = new ArrayList<Grop>();
 
-        public String getUserName() {
+
+    public Person(String userName , String Password ,String name , String description) {
+        this.userName = userName;
+        this.Password = Password;
+        this.name=name;
+        this.description = description;
+    }
+
+
+    public String getUserName() {
             return userName;
         }
 
@@ -26,7 +37,15 @@ public class Person {
             Password = password;
         }
 
-        public ArrayList<Person> getBloch_list() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Person> getBloch_list() {
             return bloch_list;
         }
 

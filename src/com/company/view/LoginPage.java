@@ -1,4 +1,5 @@
 package com.company.view;
+import com.company.controller.CreateAccount;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.SubScene;
@@ -16,8 +17,11 @@ import javafx.scene.text.Font;
 public class LoginPage extends TabPane {
     private TextField entered_Username;
     private PasswordField entered_password;
+    private TextField nameField;
     private Button enter_login;
+    private TextField descriptionField;
     private Button enter_sighnin;
+
 
     public TextField getEntered_Username() {
         return entered_Username;
@@ -33,6 +37,14 @@ public class LoginPage extends TabPane {
 
     public Button getEnter_sighnin() {
         return enter_sighnin;
+    }
+
+    public TextField getNameField() {
+        return nameField;
+    }
+
+    public TextField getDescriptionField() {
+        return descriptionField;
     }
 
     public LoginPage() {
@@ -59,6 +71,8 @@ public class LoginPage extends TabPane {
         boxlogin.setSpacing(20);
         Tab login = new Tab("longin", boxlogin);
 
+        //Sing in :
+
         Label username2 = new Label("username");
         username2.setTextFill(Color.GREEN);
         username2.setFont(Font.font ("FontPosture.ITALIC", 18));
@@ -74,15 +88,39 @@ public class LoginPage extends TabPane {
         enter_sighnin = new Button("sighn in"); //this
         enter_sighnin.setPrefHeight(30);
         enter_sighnin.setPrefWidth(240);
-        VBox boxsighnin = new VBox(username2, entered_Username, password2, entered_password, enter_sighnin);
+        //name :
+        Label nameLBL = new Label("name");
+        nameField = new TextField();
+        nameLBL.setPrefHeight(30);
+        nameLBL.setPrefWidth(240);
+        nameLBL.setAlignment(Pos.BOTTOM_LEFT);
+        nameLBL.setTextFill(Color.ROSYBROWN);
+        nameLBL.setFont(Font.font("FontPosture.ITALIC" , 22));
+
+        //Description  :
+        Label descriptionLBL = new Label("description ");
+        descriptionField = new TextField();
+        descriptionLBL.setPrefHeight(30);
+        descriptionLBL.setPrefHeight(240);
+        descriptionLBL.setAlignment(Pos.BOTTOM_LEFT);
+        descriptionLBL.setTextFill(Color.TEAL);
+        descriptionLBL.setFont(Font.font("FontPosture.ITALIC" , 18));
+
+
+
+
+        VBox boxsighnin = new VBox(username2, entered_Username, password2, entered_password,nameLBL,nameField,descriptionLBL,descriptionField ,enter_sighnin);
         boxsighnin.setAlignment(Pos.TOP_LEFT);
         boxsighnin.setMaxWidth(240);
-        boxsighnin.setMaxHeight(50);
+        boxsighnin.setMaxHeight(70);
         boxsighnin.setSpacing(20);
         Tab Sighnin = new Tab("Sighn in", boxsighnin);
 
         this.getTabs().add(login);
         this.getTabs().add(Sighnin);
+
+      CreateAccount createAccount = new CreateAccount();
+      createAccount.createAccount();
 
     }
 }
