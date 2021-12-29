@@ -13,7 +13,10 @@ public class Main extends Application {
 
         public static ArrayList<Person> persons = new ArrayList<>();
 
-    public static  void main(String [] args ){launch(args);}
+    public static  void main(String [] args ){
+
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {

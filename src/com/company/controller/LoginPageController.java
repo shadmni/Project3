@@ -27,16 +27,17 @@ public class LoginPageController extends VBox {
               @Override
               public void handle(ActionEvent event) {
 
-                  if(loginPage.getEntered_Username().equals("sha")
+                  /*if(loginPage.getEntered_Username().equals("sha")
                           && loginPage.getEntered_password().equals(123)){
                       MainPageController mainPageController = new MainPageController();
                       loginPage.getScene().getWindow().hide();
                       Stage mainPageStage = new Stage();
                       mainPageStage.setScene(new Scene(mainPageController.getMainPage()));
+                      mainPageStage.show();
 
-                  }
+                  }*/
 
-                  /*for (Person i : Main.persons) {
+                  for (Person i : Main.persons) {
                       if(loginPage.getEntered_Username().equals(i.getUserName())
                               && loginPage.getEntered_password().equals(i.getPassword())){
                                   MainPageController mainPageController = new MainPageController();
@@ -46,7 +47,7 @@ public class LoginPageController extends VBox {
 
                       }
 
-                  }*/
+                  }
 
               }
           });
