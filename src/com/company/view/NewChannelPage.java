@@ -1,0 +1,86 @@
+package com.company.view;
+
+
+
+//import com.company.Model.Person;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+
+import  static com.company.Main.persons;
+
+import java.util.ArrayList;
+
+public class NewChannelPage extends VBox {
+
+
+    private ArrayList<Button> choose = new ArrayList<Button>();
+    private TextField name = new TextField();
+    private ArrayList<HBox>  personBox = new ArrayList<>(); //
+    private ArrayList<Label> useranemlabels = new ArrayList<>(); //
+
+
+
+    ObservableList data =  FXCollections.observableArrayList(); //
+    final ListView listView = new ListView(data);
+
+
+    public NewChannelPage(){
+
+        Label channelName = new Label("  Name Channel");
+        Label listPeopleChannel = new Label("  choose people inside channel");
+            /*ObservableList data =  FXCollections.observableArrayList();
+            final ListView listView = new ListView(data);*/
+        listView.setPrefSize(300, 350);
+        listView.setEditable(true);
+        for (int i = 0; i < persons.size(); i++) {
+            Label personUsername = new Label(persons.get(i).getName());  //"username"
+            getChoose().add(new Button("choose"));
+            HBox person = new HBox(personUsername, getChoose().get(i));
+            useranemlabels.add(personUsername); //
+            person.setSpacing(260);
+            data.add(person);
+        }
+        listView.setItems(data);
+        StackPane root = new StackPane();
+        root.getChildren().add(listView);
+        this.getChildren().addAll(channelName, getName(),listPeopleChannel,root);
+        this.setSpacing(10);
+        this.setMaxWidth(300);
+    }
+
+    public ArrayList<Button> getChoose() {
+        return choose;
+    }
+
+    public void setChoose(ArrayList<Button> choose) {
+        this.choose = choose;
+    }
+
+    public TextField getName() {
+        return name;
+    }
+
+    public ArrayList<HBox> getPersonBox() {
+        return personBox;
+    }
+
+    public ListView getListView() {
+        return listView;
+    }
+
+    public ArrayList<Label> getUseranemlabels() {
+        return useranemlabels;
+    }
+
+    public void setName(TextField name) {
+        this.name = name;
+    }
+}
+

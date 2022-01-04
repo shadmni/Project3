@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class Main extends Application {
 
         public static ArrayList<Person> persons = new ArrayList<>();
+        public static Person person;
 
     public static  void main(String [] args ){
 

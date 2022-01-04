@@ -1,38 +1,24 @@
 package com.company.view;
 
+import com.company.Main.*;
+import com.company.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-
-
 
 public class MainPage extends VBox {
 
-    private Button editProfileBTN;
+    private Button myProfileBTN;
     private Button newChannelBTN;
     private Button newGroupBTN;
 
-    public MainPage(){
 
-        editProfileBTN = new Button("Edit Profile");
-        editProfileBTN.setAlignment(Pos.CENTER_LEFT);
-        newChannelBTN = new Button("+New Channel");
-        newChannelBTN.setAlignment(Pos.CENTER_LEFT);
-        newGroupBTN = new Button("+New Group");
-        newGroupBTN.setAlignment(Pos.CENTER_LEFT);
-        TextField header = new TextField("");
-        header.setAlignment(Pos.CENTER);
-        VBox menu =new VBox(editProfileBTN,newGroupBTN,newChannelBTN);
-        menu.setSpacing(10);
-        SplitPane mainSPL = new SplitPane(menu,header);
-        VBox  mainVbox =  new VBox(mainSPL);
-
-    }
-
-    public Button getEditProfileBTN() {
-        return editProfileBTN;
+    public Button getMyProfileBTN() {
+        return myProfileBTN;
     }
 
     public Button getNewChannelBTN() {
@@ -42,4 +28,47 @@ public class MainPage extends VBox {
     public Button getNewGroupBTN() {
         return newGroupBTN;
     }
+
+    public MainPage() {
+
+        int personNumber = 0;
+        Label profile = new Label(Main.person.getName());///Main.Person.get().getUserName()
+        ObservableList data = FXCollections.observableArrayList();
+        //ObservableList data =  FXCollections.observableArrayList();
+        final ListView listView = new ListView(data);
+        newChannelBTN = new Button("+New Channel");
+        newGroupBTN = new Button("+New Group");
+        myProfileBTN = new Button("My Profile");
+        HBox menuBox = new HBox(myProfileBTN,newChannelBTN,newGroupBTN);
+        menuBox.setSpacing(3);
+        listView.setPrefSize(300, 350);
+        listView.setEditable(true);
+
+        for (int i = 0; i < Main.person.getGrop_list().size(); i++) {//Main.Grop.size()+1
+            //for (int j = 0; j < 6; j++) {//Main.Person.size()+1
+                //if(Main.Grop.get(i).getMember_list().get(j)==Main.Person.get()){
+                //    data.add(Main.Grop.get(i).getName());
+                //}
+           // }
+                data.add(Main.person.getGrop_list().get(i).getName()); //nameGrop
+
+        }
+        for (int i = 0; i < Main.person.getChannel_list().size(); i++) {//Main.Channel.size()+1
+            //for (int j = 0; j < 6; j++) {//Main.Person.size()+1
+            //if(Main.Channel.get(i).getMember_list().get(j)==Main.Person.get(0)){
+            //    data.add(Main.Channel.get(i).getName());
+            //}
+        //}
+                data.add(Main.person.getChannel_list().get(i).getName());  //nameChannel
+
+        }
+        listView.setItems(data);
+        StackPane root = new StackPane();
+        root.getChildren().add(listView);
+        this.getChildren().addAll(profile, menuBox, root);
+
+
+
+    }
 }
+

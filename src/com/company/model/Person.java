@@ -76,6 +76,10 @@ public class Person {
         public void setGrop_list(ArrayList<Grop> grop_list) {
             this.grop_list = grop_list;
         }
+
+    public String getDescription() {
+        return description;
     }
+}
 
 

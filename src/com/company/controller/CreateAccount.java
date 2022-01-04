@@ -12,17 +12,12 @@ public class CreateAccount {
     public CreateAccount(){
 
         loginPage = new LoginPage();
-        createAccount();
+
 
 
     }
 
-    public void createAccount(){
 
-        person = new Person(loginPage.getEntered_Username().getText(), loginPage.getEntered_password().getText(),
-                loginPage.getNameField().getText(),loginPage.getNameField().getText());
-
-        persons.add(person);
 
 
 
@@ -31,4 +26,4 @@ public class CreateAccount {
 
 
     }
-}
+
