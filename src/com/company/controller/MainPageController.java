@@ -88,8 +88,10 @@ public class MainPageController  extends VBox {
             @Override
             public void handle(ActionEvent event) {
                 NewGroupPageController newGroupPageController = new NewGroupPageController();
-                Stage newGroupSatage = new Stage();
-                newGroupSatage.setScene(new Scene(newGroupPageController.getNewGroupPage()) );
+                Stage newGroupStage= new Stage();
+                newGroupStage.setScene(new Scene(newGroupPageController.getNewGroupPage()) );
+                newGroupStage.show();
+
 
             }
         });
