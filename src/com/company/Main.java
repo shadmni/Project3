@@ -7,6 +7,9 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main extends Application {
@@ -15,6 +18,28 @@ public class Main extends Application {
         public static Person person;
 
     public static  void main(String [] args ){
+
+        try {
+
+            FileReader personFile = new FileReader("Person.txt");
+            BufferedReader personBuf = new BufferedReader(personFile);
+
+            for( Person i : persons){
+
+                i.setName(personBuf.readLine());
+                i.setUserName(personBuf.readLine());
+                i.setPassword(personBuf.readLine());
+                i.setDescription(personBuf.readLine());
+
+            }
+
+
+            personBuf.close();
+
+
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
 
         launch(args);
     }

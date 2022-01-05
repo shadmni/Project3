@@ -77,6 +77,10 @@ public class Person {
             this.grop_list = grop_list;
         }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getDescription() {
         return description;
     }
