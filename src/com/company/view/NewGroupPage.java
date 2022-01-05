@@ -1,8 +1,6 @@
 package com.company.view;
 
 
-
-//import com.company.Model.Person;
 import com.company.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +16,7 @@ import  static com.company.Main.persons;
 
 import java.util.ArrayList;
 
-public class NewChannelPage extends VBox {
+public class NewGroupPage extends VBox {
 
 
     private ArrayList<Button> choose = new ArrayList<Button>();
@@ -33,16 +31,15 @@ public class NewChannelPage extends VBox {
     final ListView listView = new ListView(data);
 
 
-    public NewChannelPage(){
+    public NewGroupPage(){
 
-        Label channelName = new Label("  Name Channel");
-        Label listPeopleChannel = new Label("  choose people inside channel");
+        Label channelName = new Label("  Name Group");
+        Label listPeopleChannel = new Label("  choose people inside Group");
         doneBTN = new Button("Done");
             /*ObservableList data =  FXCollections.observableArrayList();
             final ListView listView = new ListView(data);*/
         listView.setPrefSize(300, 350);
         listView.setEditable(true);
-
         for (int i = 0; i < persons.size(); i++) {
             if (!persons.get(i).getName().equals(Main.person.getName())) {
                 Label personUsername = new Label(persons.get(i).getName());  //"username"
@@ -53,7 +50,6 @@ public class NewChannelPage extends VBox {
                 data.add(person);
             }
         }
-
         listView.setItems(data);
         StackPane root = new StackPane();
         root.getChildren().add(listView);

@@ -4,9 +4,17 @@ package com.company.model;
 import java.util.ArrayList;
 
 public class Channel {
+
+
     private Person Admin ;
     private String name ;
     private ArrayList<Person> member_list = new ArrayList<Person>();
+
+    public Channel(Person admin, String name, ArrayList<Person> member_list) {
+        Admin = admin;
+        this.name = name;
+        this.member_list = member_list;
+    }
 
     public Person getAdmin() {
         return Admin;

@@ -21,6 +21,8 @@ public class MainPageController  extends VBox {
 
         newChannelButtonController();
         myProfileButtonController();
+        logoutButtonController();
+        newGroupButtonController();
 
     }
 
@@ -43,6 +45,24 @@ public class MainPageController  extends VBox {
 
 
     }
+    public void logoutButtonController(){
+
+      mainPage.getLogoutBTN().setOnAction(new EventHandler<ActionEvent>() {
+          @Override
+          public void handle(ActionEvent event) {
+
+                      mainPage.getScene().getWindow().hide();
+
+                      LoginPageController loginPageController = new LoginPageController();
+                      Stage loginPageStage = new Stage();
+                      loginPageStage.setScene(new Scene(loginPageController.getLoginPage()));
+                      loginPageStage.show();
+
+
+          }
+      });
+
+    }
 
     public  void myProfileButtonController(){
 
@@ -56,6 +76,20 @@ public class MainPageController  extends VBox {
                 profileStage.show();
 
 
+
+            }
+        });
+
+    }
+
+    public  void newGroupButtonController(){
+
+        mainPage.getNewGroupBTN().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                NewGroupPageController newGroupPageController = new NewGroupPageController();
+                Stage newGroupSatage = new Stage();
+                newGroupSatage.setScene(new Scene(newGroupPageController.getNewGroupPage()) );
 
             }
         });

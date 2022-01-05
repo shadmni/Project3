@@ -15,7 +15,8 @@ public class MainPage extends VBox {
     private Button myProfileBTN;
     private Button newChannelBTN;
     private Button newGroupBTN;
-
+    private Button logoutBTN ;
+    private Label nothingLBL;
 
     public Button getMyProfileBTN() {
         return myProfileBTN;
@@ -29,6 +30,14 @@ public class MainPage extends VBox {
         return newGroupBTN;
     }
 
+    public Button getLogoutBTN() {
+        return logoutBTN;
+    }
+
+    public Label getNothingLBL() {
+        return nothingLBL;
+    }
+
     public MainPage() {
 
         int personNumber = 0;
@@ -39,28 +48,35 @@ public class MainPage extends VBox {
         newChannelBTN = new Button("+New Channel");
         newGroupBTN = new Button("+New Group");
         myProfileBTN = new Button("My Profile");
-        HBox menuBox = new HBox(myProfileBTN,newChannelBTN,newGroupBTN);
+        logoutBTN = new Button("Logout");
+        HBox menuBox = new HBox(myProfileBTN,newChannelBTN,newGroupBTN,logoutBTN);
         menuBox.setSpacing(3);
         listView.setPrefSize(300, 350);
         listView.setEditable(true);
 
-        for (int i = 0; i < Main.person.getGrop_list().size(); i++) {//Main.Grop.size()+1
-            //for (int j = 0; j < 6; j++) {//Main.Person.size()+1
+        if(! Main.person.getGrop_list().isEmpty()) {
+
+            for (int i = 0; i < Main.person.getGrop_list().size(); i++) {//Main.Grop.size()+1
+
+                //for (int j = 0; j < 6; j++) {//Main.Person.size()+1
                 //if(Main.Grop.get(i).getMember_list().get(j)==Main.Person.get()){
                 //    data.add(Main.Grop.get(i).getName());
                 //}
-           // }
+                // }
                 data.add(Main.person.getGrop_list().get(i).getName()); //nameGrop
 
+            }
         }
-        for (int i = 0; i < Main.person.getChannel_list().size(); i++) {//Main.Channel.size()+1
-            //for (int j = 0; j < 6; j++) {//Main.Person.size()+1
-            //if(Main.Channel.get(i).getMember_list().get(j)==Main.Person.get(0)){
-            //    data.add(Main.Channel.get(i).getName());
-            //}
-        //}
+        if(! Main.person.getChannel_list().isEmpty()) {
+            for (int i = 0; i < Main.person.getChannel_list().size(); i++) {//Main.Channel.size()+1
+                //for (int j = 0; j < 6; j++) {//Main.Person.size()+1
+                //if(Main.Channel.get(i).getMember_list().get(j)==Main.Person.get(0)){
+                //    data.add(Main.Channel.get(i).getName());
+                //}
+                //}
                 data.add(Main.person.getChannel_list().get(i).getName());  //nameChannel
 
+            }
         }
         listView.setItems(data);
         StackPane root = new StackPane();
