@@ -72,6 +72,15 @@ public class NewGroupPageController {
 
                 newGroupPage.getScene().getWindow().hide();
 
+
+                for(Person per : persons){
+                    for(int i=0; i <group.getMember_list().size() ; i++){
+                        if(per.getUserName().equals(group.getMember_list().get(i))){
+                             per.getGrop_list().add(group);
+                        }
+                    }
+                }
+
             }
         });
 

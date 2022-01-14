@@ -7,7 +7,7 @@ import javafx.event.EventHandler;
 public class GroupChatPageController {
 
     GroupChatPage groupChatPage;
-    
+
 
     public GroupChatPageController(){
 
