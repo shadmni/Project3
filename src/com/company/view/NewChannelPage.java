@@ -20,8 +20,51 @@ import java.util.ArrayList;
 
 public class NewChannelPage extends VBox {
 
+    private ListView<String> listView;
+    private Button addBTN;
+    private Button doneBTN;
+    private TextField channelNameField;
 
-    private ArrayList<Button> choose = new ArrayList<Button>();
+
+
+    public NewChannelPage(){
+
+
+
+    listView = new ListView<>();
+    addBTN = new Button("ADD");
+    doneBTN = new Button("Done");
+    channelNameField = new TextField();
+
+    VBox menuBox = new VBox(channelNameField, addBTN);
+
+
+        for (int i = 0; i < Main.persons.size(); i++) {
+        listView.getItems().add(Main.persons.get(i).getUserName());
+    }
+
+
+        this.getChildren().addAll(menuBox, listView, doneBTN);
+
+
+   }
+
+    public ListView<String> getListView() {
+        return listView;
+    }
+
+    public Button getAddBTN() {
+        return addBTN;
+    }
+
+    public Button getDoneBTN() {
+        return doneBTN;
+    }
+
+    public TextField getChannelNameField() {
+        return channelNameField;
+    }
+/*private ArrayList<Button> choose = new ArrayList<Button>();
     private TextField name = new TextField();
     private ArrayList<HBox>  personBox = new ArrayList<>(); //
     private ArrayList<Label> useranemlabels = new ArrayList<>(); //
@@ -38,8 +81,8 @@ public class NewChannelPage extends VBox {
         Label channelName = new Label("  Name Channel");
         Label listPeopleChannel = new Label("  choose people inside channel");
         doneBTN = new Button("Done");
-            /*ObservableList data =  FXCollections.observableArrayList();
-            final ListView listView = new ListView(data);*/
+            ObservableList data =  FXCollections.observableArrayList();
+            final ListView listView = new ListView(data);
         listView.setPrefSize(300, 350);
         listView.setEditable(true);
 
@@ -97,5 +140,6 @@ public class NewChannelPage extends VBox {
     public ObservableList getData() {
         return data;
     }
-}
+}*/
 
+}

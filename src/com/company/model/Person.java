@@ -7,8 +7,11 @@ public class Person {
         private String Password ;
         private String name ;
         private String description;
+
         private ArrayList<Person> bloch_list = new ArrayList<Person>();
-        private ArrayList<Person> chat_list = new ArrayList<Person>();
+        //private ArrayList<Person> chat_list = new ArrayList<Person>();
+        private ArrayList<Chat> chat_list = new ArrayList<>();
+
         private ArrayList<Channel> channel_list = new ArrayList<Channel>();
         private ArrayList<Grop> grop_list = new ArrayList<Grop>();
 
@@ -53,13 +56,14 @@ public class Person {
             this.bloch_list = bloch_list;
         }
 
-        public ArrayList<Person> getChat_list() {
-            return chat_list;
+        /*public ArrayList<Person> getChat_list() {
+
+        return chat_list;
         }
 
         public void setChat_list(ArrayList<Person> chat_list) {
             this.chat_list = chat_list;
-        }
+        }*/
 
         public ArrayList<Channel> getChannel_list() {
             return channel_list;
@@ -83,6 +87,10 @@ public class Person {
 
     public String getDescription() {
         return description;
+    }
+
+    public ArrayList<Chat> getChat_list() {
+        return chat_list;
     }
 }
 

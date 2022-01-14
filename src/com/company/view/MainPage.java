@@ -12,7 +12,67 @@ import javafx.scene.layout.VBox;
 
 public class MainPage extends VBox {
 
+    private ListView<String> listView;
     private Button myProfileBTN;
+    private Button newGroupBTN;
+    private Button newChannelBTN;
+    private Button logoutBTN;
+    private Button openChatBTN;
+
+
+    public MainPage(){
+
+
+        listView = new ListView<>();
+
+        newChannelBTN = new Button("+New Channel");
+        newGroupBTN = new Button("+New Group");
+        myProfileBTN = new Button("My Profile");
+        logoutBTN = new Button("Logout");
+        openChatBTN = new Button("Open");
+        Label nameLBL = new Label(Main.person.getName());
+
+        HBox menuBox = new HBox(myProfileBTN,newChannelBTN,newGroupBTN,logoutBTN,openChatBTN);
+
+
+
+        if(!Main.persons.isEmpty()){
+            for(int i =0; i < Main.persons.size() ; i ++){
+                listView.getItems().add(Main.persons.get(i).getUserName());
+            }
+        }
+
+        this.getChildren().addAll(nameLBL,menuBox,listView);
+
+
+
+    }
+
+    public ListView<String> getListView() {
+        return listView;
+    }
+
+    public Button getMyProfileBTN() {
+        return myProfileBTN;
+    }
+
+    public Button getNewGroupBTN() {
+        return newGroupBTN;
+    }
+
+    public Button getNewChannelBTN() {
+        return newChannelBTN;
+    }
+
+    public Button getLogoutBTN() {
+        return logoutBTN;
+    }
+
+    public Button getOpenChatBTN() {
+        return openChatBTN;
+    }
+
+    /*private Button myProfileBTN;
     private Button newChannelBTN;
     private Button newGroupBTN;
     private Button logoutBTN ;
@@ -85,6 +145,6 @@ public class MainPage extends VBox {
 
 
 
-    }
+    }*/
 }
 

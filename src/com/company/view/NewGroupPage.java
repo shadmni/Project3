@@ -19,7 +19,58 @@ import java.util.ArrayList;
 public class NewGroupPage extends VBox {
 
 
-    private ArrayList<Button> choose = new ArrayList<Button>();
+
+    private ListView<String> listView;
+    private Button addBTN;
+    private Button doneBTN;
+    private TextField groupNameField;
+
+
+
+
+    public NewGroupPage() {
+
+        listView = new ListView<>();
+        addBTN = new Button("ADD");
+        doneBTN = new Button("Done");
+        groupNameField = new TextField();
+
+        VBox menuBox = new VBox(groupNameField, addBTN);
+
+
+        for (int i = 0; i < Main.persons.size(); i++) {
+            listView.getItems().add(Main.persons.get(i).getUserName());
+        }
+
+
+        this.getChildren().addAll(menuBox, listView, doneBTN);
+    }
+
+    public ListView<String> getListView() {
+        return listView;
+    }
+
+    public Button getAddBTN() {
+        return addBTN;
+    }
+
+    public Button getDoneBTN() {
+        return doneBTN;
+    }
+
+    public TextField getGroupNameField() {
+        return groupNameField;
+    }
+
+
+  }
+
+
+
+
+
+
+    /*private ArrayList<Button> choose = new ArrayList<Button>();
     private TextField name = new TextField();
     private ArrayList<HBox>  personBox = new ArrayList<>(); //
     private ArrayList<Label> useranemlabels = new ArrayList<>(); //
@@ -37,7 +88,7 @@ public class NewGroupPage extends VBox {
         Label listPeopleChannel = new Label("  choose people inside Group");
         doneBTN = new Button("Done");
             /*ObservableList data =  FXCollections.observableArrayList();
-            final ListView listView = new ListView(data);*/
+            final ListView listView = new ListView(data);
         listView.setPrefSize(300, 350);
         listView.setEditable(true);
         for (int i = 0; i < persons.size(); i++) {
@@ -93,5 +144,5 @@ public class NewGroupPage extends VBox {
     public ObservableList getData() {
         return data;
     }
-}
+}*/
 

@@ -1,5 +1,7 @@
 package com.company;
 import com.company.controller.LoginPageController;
+import com.company.model.Channel;
+import com.company.model.Grop;
 import com.company.model.Person;
 
 import com.company.view.LoginPage;
@@ -16,6 +18,9 @@ public class Main extends Application {
 
         public static ArrayList<Person> persons = new ArrayList<>();
         public static Person person;
+        public static Person receiverPerson;
+        public static Channel currentChannel;
+        public static Grop currentGroup;
 
     public static  void main(String [] args ){
 

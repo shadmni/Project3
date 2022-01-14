@@ -3,6 +3,7 @@ package com.company.controller;
 import com.company.Main;
 import com.company.model.Channel;
 import com.company.model.Person;
+import com.company.model.Grop;
 import com.company.view.MainPage;
 import  com.company.view.NewGroupPage;
 import javafx.event.ActionEvent;
@@ -19,7 +20,81 @@ import static com.company.Main.persons;
 
 public class NewGroupPageController {
 
+
+
     NewGroupPage newGroupPage ;
+    MainPageController mainPageController ;
+    ArrayList<Person> memberList;
+
+
+    public NewGroupPageController(MainPageController mainPageController){
+
+        newGroupPage = new NewGroupPage();
+        this.mainPageController=mainPageController;
+        memberList = new ArrayList<>();
+
+        addButtonController();
+        doneButtonController();
+
+    }
+
+
+    public void addButtonController(){
+
+        newGroupPage.getAddBTN().setOnAction(e ->{
+
+            String username = newGroupPage.getListView().getSelectionModel().getSelectedItem();
+
+            for(Person i : Main.persons){
+                if(i.getUserName().equals(username)){
+                    memberList.add(i);
+                }
+
+            }
+
+
+        });
+
+    }
+
+    public  void doneButtonController(){
+
+        newGroupPage.getDoneBTN().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                String nameGroup = newGroupPage.getGroupNameField().getText();
+
+                Grop group = new Grop(nameGroup,Main.person,memberList);
+                Main.person.getGrop_list().add(group);
+
+                mainPageController.addNewGroupToListView(nameGroup);
+
+                newGroupPage.getScene().getWindow().hide();
+
+            }
+        });
+
+    }
+
+    public NewGroupPage getNewGroupPage() {
+        return newGroupPage;
+    }
+
+    public MainPageController getMainPageController() {
+        return mainPageController;
+    }
+
+    public ArrayList<Person> getMemberList() {
+        return memberList;
+    }
+}
+
+
+
+
+
+    /*NewGroupPage newGroupPage ;
     MainPage mainPage;
 
     public NewGroupPageController(){
@@ -79,4 +154,4 @@ public class NewGroupPageController {
     public NewGroupPage getNewGroupPage() {
         return newGroupPage;
     }
-}
+}*/

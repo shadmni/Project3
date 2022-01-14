@@ -4,11 +4,15 @@ import com.company.view.ProfilePage;
 
 public class ProfilePageController {
 
-    ProfilePage profilePage;
+    ProfilePage profilePage ;
+
 
     public ProfilePageController() {
 
-        profilePage = new ProfilePage();
+       profilePage = new ProfilePage() ;
+
+
+
 
 
     }

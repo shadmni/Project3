@@ -27,17 +27,86 @@ import static com.company.Main.persons;
 public class NewChannelPageController {
 
     NewChannelPage newChannelPage ;
-    MainPage mainPage;
+    MainPageController mainPageController ;
+    ArrayList<Person> memberList;
 
-    public NewChannelPageController(){
+
+
+    public NewChannelPageController(MainPageController mainPageController) {
 
         newChannelPage = new NewChannelPage();
-        mainPage = new MainPage();
-        chooseButtonController();
+        this.mainPageController = mainPageController;
+        memberList = new ArrayList<>();
+
+
+        addButtonController();
+        doneButtonController();
+
 
     }
 
-    public void chooseButtonController(){
+
+    public void addButtonController(){
+
+        newChannelPage.getAddBTN().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+
+                String username =newChannelPage.getListView().getSelectionModel().getSelectedItem();
+
+                for(Person i : Main.persons){
+                    if(i.getUserName().equals(username)){
+                        memberList.add(i);
+
+                    }
+
+                }
+
+
+            }
+        });
+    }
+    public void doneButtonController(){
+
+        newChannelPage.getDoneBTN().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                String nameChannel = newChannelPage.getChannelNameField().getText();
+
+                Channel channel = new Channel(person,nameChannel,memberList);
+                person.getChannel_list().add(channel);
+
+                mainPageController.addNewChannelToListView(nameChannel);
+
+                newChannelPage.getScene().getWindow().hide();
+
+
+                for( Person per : persons){
+                   for(int i=0; i <channel.getMember_list().size() ; i++){
+                       if(per.getUserName().equals(channel.getMember_list().get(i).getUserName())){
+                            per.getChannel_list().add(channel);
+                       }
+                   }
+                }
+
+
+
+            }
+        });
+
+    }
+
+    public NewChannelPage getNewChannelPage() {
+        return newChannelPage;
+    }
+
+    public MainPageController getMainPageController() {
+        return mainPageController;
+    }
+
+    /*public void chooseButtonController(){
 
         for(Button i : newChannelPage.getChoose()){
             i.setOnAction(new EventHandler<ActionEvent>() {
@@ -99,5 +168,5 @@ public class NewChannelPageController {
 
     public NewChannelPage getNewChannelPage() {
         return newChannelPage;
-    }
+    }*/
 }
