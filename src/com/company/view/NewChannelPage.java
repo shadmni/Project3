@@ -40,7 +40,9 @@ public class NewChannelPage extends VBox {
 
 
         for (int i = 0; i < Main.persons.size(); i++) {
-        listView.getItems().add(Main.persons.get(i).getUserName());
+            if( !persons.get(i).getUserName().equals(Main.person.getUserName())) {
+                listView.getItems().add(Main.persons.get(i).getUserName());
+            }
     }
 
 

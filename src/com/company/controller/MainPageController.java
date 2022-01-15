@@ -28,6 +28,8 @@ public class MainPageController  extends VBox {
     boolean personBool ;
     boolean group ;
 
+    WriteOnFile writeOnFile = new WriteOnFile();
+
 
     public MainPageController(){
 
@@ -170,6 +172,8 @@ public class MainPageController  extends VBox {
                     groupChatStage.show();
 
                 }
+                       writeOnFile.writePersonChannels();
+
             }
         });
 

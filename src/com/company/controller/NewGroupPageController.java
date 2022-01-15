@@ -26,6 +26,8 @@ public class NewGroupPageController {
     MainPageController mainPageController ;
     ArrayList<Person> memberList;
 
+    WriteOnFile writeOnFile = new WriteOnFile();
+
 
     public NewGroupPageController(MainPageController mainPageController){
 
@@ -81,8 +83,11 @@ public class NewGroupPageController {
                     }
                 }
 
+                 writeOnFile.writePersonGroups();
             }
         });
+
+
 
     }
 

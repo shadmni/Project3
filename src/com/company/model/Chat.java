@@ -7,6 +7,7 @@ public class Chat {
     Person sender ;
     Person receiver;
     ArrayList<String> chat_list = new ArrayList<>() ;
+    Boolean Block=false;
 
     public Person getSender() {
         return sender;
@@ -18,5 +19,9 @@ public class Chat {
 
     public ArrayList<String> getChat_list() {
         return chat_list;
+    }
+
+    public void setBlock(Boolean block) {
+        Block = block;
     }
 }

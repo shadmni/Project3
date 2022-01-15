@@ -8,6 +8,8 @@ public class Person {
         private String name ;
         private String description;
 
+        private Block block = new Block();
+
         private ArrayList<Person> bloch_list = new ArrayList<Person>();
         //private ArrayList<Person> chat_list = new ArrayList<Person>();
         private ArrayList<Chat> chat_list = new ArrayList<>();
@@ -52,7 +54,11 @@ public class Person {
             return bloch_list;
         }
 
-        public void setBloch_list(ArrayList<Person> bloch_list) {
+    public Block getBlock() {
+        return block;
+    }
+
+    public void setBloch_list(ArrayList<Person> bloch_list) {
             this.bloch_list = bloch_list;
         }
 

@@ -32,6 +32,8 @@ public class ChannelChatPage extends VBox {
         settingBTN = new Button("setting");
 
 
+        HBox hBox = new HBox(channelName,settingBTN);
+        hBox.setSpacing(35);
 
         HBox box = new HBox(messageField,sendBTN);
         box.setSpacing(70);
@@ -44,7 +46,7 @@ public class ChannelChatPage extends VBox {
 
 
 
-        this.getChildren().addAll(channelName,settingBTN,posts,box);
+        this.getChildren().addAll(hBox,settingBTN,posts,box);
 
 
     }
@@ -63,6 +65,10 @@ public class ChannelChatPage extends VBox {
 
     public Button getSendBTN() {
         return sendBTN;
+    }
+
+    public Button getSettingBTN() {
+        return settingBTN;
     }
 }
 

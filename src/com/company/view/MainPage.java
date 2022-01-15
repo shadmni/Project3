@@ -37,8 +37,10 @@ public class MainPage extends VBox {
 
 
         if(!Main.persons.isEmpty()){
-            for(int i =0; i < Main.persons.size() ; i ++){
-                listView.getItems().add(Main.persons.get(i).getUserName());
+            for(int i =0; i < Main.persons.size() ; i ++) {
+                if (!Main.persons.get(i).getUserName().equals(Main.person.getUserName())) {
+                    listView.getItems().add(Main.persons.get(i).getUserName());
+                }
             }
         }
 

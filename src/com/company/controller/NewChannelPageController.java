@@ -18,6 +18,9 @@ import javafx.scene.control.ScrollToEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.company.Main.person;
@@ -29,6 +32,8 @@ public class NewChannelPageController {
     NewChannelPage newChannelPage ;
     MainPageController mainPageController ;
     ArrayList<Person> memberList;
+
+    //WriteOnFile writeOnFile = new WriteOnFile();
 
 
 
@@ -90,8 +95,30 @@ public class NewChannelPageController {
                        }
                    }
                 }
+                // Write on file  :
+
+                try {
+
+                    FileWriter personChannel = new FileWriter("PersonsChannel.txt");
+                    BufferedWriter personChannelBuf = new BufferedWriter(personChannel);
+
+                    for (Person per : Main.persons) {
+                        for (int i = 0; i < per.getChannel_list().size(); i++) {
+                            personChannelBuf.write(per.getChannel_list().get(i).getName());
+                            personChannelBuf.newLine();
+                        }
+                    }
+
+                    personChannelBuf.close();
 
 
+                }catch(IOException e ){
+                    e.printStackTrace();
+                }
+                //
+
+
+                //writeOnFile.writePersonChannels();
 
             }
         });

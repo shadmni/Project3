@@ -16,6 +16,7 @@ public class PrivateChatPage extends VBox {
     private ListView<String> chat_List ;
     private TextField messageField;
     private Label name ;
+    private Button blockBTN;
     private Button sendBTN ;
     private Chat currentChatList;
 
@@ -23,11 +24,12 @@ public class PrivateChatPage extends VBox {
 
         chat_List = new ListView<>();
         messageField = new TextField();
+        blockBTN = new Button("Block");
         name = new Label(Main.receiverPerson.getName());
         sendBTN = new Button("Send");
         currentChatList = new Chat();
 
-
+        HBox hBox = new HBox(name,blockBTN);
         HBox box = new HBox(messageField,sendBTN);
         box.setSpacing(70);
 
@@ -47,7 +49,7 @@ public class PrivateChatPage extends VBox {
 
 
 
-        this.getChildren().addAll(name,chat_List,box);
+        this.getChildren().addAll(hBox,chat_List,box);
 
 
     }
@@ -66,6 +68,14 @@ public class PrivateChatPage extends VBox {
 
     public Button getSendBTN() {
         return sendBTN;
+    }
+
+    public Button getBlockBTN() {
+        return blockBTN;
+    }
+
+    public Chat getCurrentChatList() {
+        return currentChatList;
     }
 }
 
